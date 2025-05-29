@@ -2,27 +2,27 @@
 
 #Front-end
 # Nuxt dev/build outputs
-.output/
-.data/
-.nuxt/
-.nitro/
-.cache/
-dist/
+/frontend/.output/
+/frontend/.data/
+/frontend/.nuxt/
+/frontend/.nitro/
+/frontend/.cache/
+/frontend/dist/
 
 # Node dependencies
-node_modules/
+/frontend/node_modules/
 
 # Logs
-logs
-*.log
+/frontend/logs
+/frontend/*.log
 
 # Misc
-.DS_Store
-.fleet
-.idea
-Thumbs.db
+/frontend/.DS_Store
+/frontend/.fleet
+/frontend/.idea
+/frontend/Thumbs.db
 
 # Local env files
-.env
-.env.*
-!.env.example
+/frontend/.env
+/frontend/.env.*
+/frontend/!.env.example
