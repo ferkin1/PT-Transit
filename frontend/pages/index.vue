@@ -12,7 +12,7 @@
         {{ d.origin }} → {{ d.destination }} (€{{ d.Total_Score }})
       </li>
     </ul>
-    <div v-if="!destinations.lengt">
+    <div v-if="!destinations.length">
       hello there !
     </div>
   </div>
