@@ -1,40 +1,28 @@
-<script setup>
-const topRow = ref(null);
-
-async function loadData() {
-  const res = await $fetch('/api/get-popular-travel?origin=MAD');
-  topRow.value = await res;
-}
-
-</script>
-
 <template>
   <div class="p-6">
-    <button @click="loadData" class="bg-blue-600 text-white px-4 py-2 rounded">Fetch Destinations</button>
-    <div v-if="!topRow">
-      <IconsSpinner />
+    <h1 class="text-2xl font-bold mb-4">Search Popular Destinations</h1>
+    <div class="flex gap-2 mb-4">
+      <input v-model="origin" placeholder="e.g. LAX" class="border px-3 py-2 rounded" />
+      <button @click="fetchDestinations" class="bg-blue-600 text-white px-4 py-2 rounded">
+        Go
+      </button>
     </div>
-    <div v-else>
-      <table>
-        <thead>
-        <tr>
-          <th>#</th>
-          <th>type</th>
-          <th>destination</th>
-          <th>subType</th>
-          <th>Total Score</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr v-for="(row, index) in topRow.data" :key="index">
-          <td class="padding-td">{{ index }}</td>
-          <td class="padding-td">{{ row.type }}</td>
-          <td class="padding-td">{{ row.destination }}</td>
-          <td class="padding-td">{{ row.subType }}</td>
-          <td class="padding-td">{{ row.analytics.flights.score + row.analytics.travelers.score }}</td>
-        </tr>
-        </tbody>
-      </table>
-    </div>
+    <ul v-if="destinations.length">
+      <li v-for="d in destinations" :key="d.destination">
+        {{ d.origin }} → {{ d.destination }} (€{{ d.price.total }})
+      </li>
+    </ul>
   </div>
 </template>
+
+<script setup>
+import { ref } from 'vue'
+
+const origin = ref('MAD')
+const destinations = ref([])
+
+async function fetchDestinations() {
+  const res = await fetch(`http://localhost:8000/api/get-popular-travel?origin=${origin.value}`)
+  destinations.value = await res.json()
+}
+</script>
