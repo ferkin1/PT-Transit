@@ -1,9 +1,17 @@
 <script setup>
-const topRow = ref(null);
+
+import { ref } from 'vue'
+
+const topRow = ref([]);
 
 async function loadData() {
-  const res = await $fetch('/api/get-popular-travel?origin=MAD');
-  topRow.value = await res;
+  const res = await fetch('https://9812-216-9-21-115.ngrok-free.app/api/get-popular-travel?origin=MAD', {
+    headers: {
+      "ngrok-skip-browser-warning": true,
+      "Content-Type": "application/json"
+    }
+  });
+  topRow.value = await res.json();
 }
 
 </script>
@@ -26,12 +34,12 @@ async function loadData() {
         </tr>
         </thead>
         <tbody>
-        <tr v-for="(row, index) in topRow.data" :key="index">
+        <tr v-for="(row, index) in topRow" :key="index">
           <td class="padding-td">{{ index }}</td>
           <td class="padding-td">{{ row.type }}</td>
           <td class="padding-td">{{ row.destination }}</td>
           <td class="padding-td">{{ row.subType }}</td>
-          <td class="padding-td">{{ row.analytics.flights.score + row.analytics.travelers.score }}</td>
+          <!--<td class="padding-td">{{ row.analytics.flights.score + row.analytics.travelers.score }}</td>-->
         </tr>
         </tbody>
       </table>

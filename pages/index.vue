@@ -8,10 +8,13 @@
       </button>
     </div>
     <ul v-if="destinations.length">
-      <li v-for="d in destinations" :key="d.destination">
+      <li v-for="d in destinations" :key="d">
         {{ d.origin }} → {{ d.destination }} (€{{ d.price.total }})
       </li>
     </ul>
+    <div v-if="!destinations.lengt">
+      hello there !
+    </div>
   </div>
 </template>
 
@@ -22,7 +25,12 @@ const origin = ref('MAD')
 const destinations = ref([])
 
 async function fetchDestinations() {
-  const res = await fetch(`http://localhost:8000/api/get-popular-travel?origin=${origin.value}`)
-  destinations.value = await res.json()
+  const res = await fetch(`https://9812-216-9-21-115.ngrok-free.app/api/get-popular-travel?origin=${origin.value}`, {
+    headers: {
+      "ngrok-skip-browser-warning": true,
+      "Content-Type": "application/json"
+    }
+  })
+  destinations.value = await res.json();
 }
 </script>
