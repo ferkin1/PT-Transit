@@ -26,10 +26,10 @@
       <li
           v-for="(d, i) in destinations"
           :key="i"
-          class="bg-white border rounded shadow p-4 flex justify-between"
+          class="bg-black border rounded shadow p-4 flex justify-between"
       >
         <span>✈️ {{ d.origin }} → {{ d.destination }}</span>
-        <span class="font-semibold">€{{ d.price?.total }}</span>
+        <span class="font-semibold">€{{ d.Total_Score }}</span>
       </li>
     </ul>
 

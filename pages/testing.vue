@@ -39,7 +39,7 @@ async function loadData() {
           <td class="padding-td">{{ row.type }}</td>
           <td class="padding-td">{{ row.destination }}</td>
           <td class="padding-td">{{ row.subType }}</td>
-          <!--<td class="padding-td">{{ row.analytics.flights.score + row.analytics.travelers.score }}</td>-->
+          <td class="padding-td">{{ row.Total_Score }}</td>
         </tr>
         </tbody>
       </table>

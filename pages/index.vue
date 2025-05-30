@@ -9,7 +9,7 @@
     </div>
     <ul v-if="destinations.length">
       <li v-for="d in destinations" :key="d">
-        {{ d.origin }} → {{ d.destination }} (€{{ d.price.total }})
+        {{ d.origin }} → {{ d.destination }} (€{{ d.Total_Score }})
       </li>
     </ul>
     <div v-if="!destinations.lengt">
