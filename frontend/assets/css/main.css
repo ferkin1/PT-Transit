@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 body {
-    background-color: var(--color-slate-600);
+    background-color: var(--color-slate-900);
 }
 
 .padding-td {

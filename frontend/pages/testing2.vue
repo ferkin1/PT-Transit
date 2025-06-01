@@ -55,7 +55,7 @@ async function fetchDestinations() {
 
   try {
     // If you have a Vite proxy set up in nuxt.config.ts to forward /api → your FastAPI:
-    const url = `https://9812-216-9-21-115.ngrok-free.app/api/get-popular-travel?origins=${origin.value}`
+    const url = `http://localhost:8000/api/get-popular-travel?origins=${origin.value}`
 
     // Otherwise, call the full backend URL:
     // const url = `http://localhost:8000/api/get-popular-travel?origins=${origin.value}`

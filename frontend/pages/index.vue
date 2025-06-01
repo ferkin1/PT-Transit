@@ -19,7 +19,8 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+
+const { sayHello } = useUtils();
 
 const origin = ref('MAD')
 const destinations = ref([])

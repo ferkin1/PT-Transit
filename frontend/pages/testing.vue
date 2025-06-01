@@ -5,7 +5,7 @@ import { ref } from 'vue'
 const topRow = ref([]);
 
 async function loadData() {
-  const res = await fetch('https://9812-216-9-21-115.ngrok-free.app/api/get-popular-travel?origin=MAD', {
+  const res = await fetch('http://localhost:8000/api/get-popular-travel?origin=MAD', {
     headers: {
       "ngrok-skip-browser-warning": true,
       "Content-Type": "application/json"
